@@ -22,4 +22,5 @@ class CollectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Collection
-        fields = "__all__"
+        exclude = ["uuid", "id"]
+        extra_kwargs = {"user": {"write_only": True}}

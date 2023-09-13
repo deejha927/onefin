@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "ae482c14-e2fd-4ffb-8e70-16f045a11108",
+		"name": "Onefin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17889521"
+	},
+	"item": [
+		{
+			"name": "Request-Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/request-count/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"request-count",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request-Count-Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/request-count/reset/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"request-count",
+						"reset",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"deejha\",\r\n    \"password\":\"deepakjha@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/movies/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collection (GET,POST,PUT,DELETE) Method.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Working data\",\r\n    \"description\": \"Testing working\",\r\n    \"movies\": [\r\n        {\r\n            \"id\": 2,\r\n            \"title\": \"Siglo ng Pagluluwal\",\r\n            \"description\": \"An artist struggles to finish his work while a storyline about a cult plays in his head.\",\r\n            \"genres\": \"Drama\",\r\n            \"uuid\": \"e9548ee7-6a95-4917-893e-1fa1d3a6de40\"\r\n        },\r\n        {\r\n            \"title\": \"Caged Heat 3000\",\r\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\r\n            \"genres\": \"Science Fiction\",\r\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/collection/c276cdbb-b0d7-4435-a945-952a4b1b71fd/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"collection",
+						"c276cdbb-b0d7-4435-a945-952a4b1b71fd",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
