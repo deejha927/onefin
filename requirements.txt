@@ -4,3 +4,4 @@ djangorestframework-simplejwt
 requests
 django-redis
 python-dotenv
+factory_boy

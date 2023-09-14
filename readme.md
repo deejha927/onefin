@@ -29,3 +29,7 @@ This file has all API request you can import this file in postman.</br>
 ```bash
    python manage.py runserver
 ```
+5. To run test case
+```bash
+   python manage.py test
+```

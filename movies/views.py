@@ -14,6 +14,7 @@ from .serializers import *
 import requests
 import os
 
+# load env variables from .env file
 load_dotenv()
 
 
@@ -79,17 +80,19 @@ class ExternalMoviesAPI(APIView):
         username = os.getenv("ACCOUNT", None)
         password = os.getenv("PASSWORD", None)
         # Make a GET request to the external API with authentication
-        response = requests.get(api_url, auth=(username, password))
-        # Check if the request was successful (HTTP status code 200)
-        if response.status_code == 200:
-            data = response.json()
-            return Response(data)
-        else:
+        try:
+            response = requests.get(api_url, auth=(
+                username, password), verify=False)
+            # Check if the request was successful (HTTP status code 200)
+            if response.status_code == 200:
+                data = response.json()
+                return Response(data, status=status.HTTP_200_OK)
             # Handle errors, e.g., authentication failure or API unavailable
             return Response(
                 {"message": "Error fetching data from the external API"},
-                status=response.status_code,
-            )
+                status=response.status_code,)
+        except Exception as e:
+            return Response({"message": str(e)})
 
 
 class CollectionView(APIView):
